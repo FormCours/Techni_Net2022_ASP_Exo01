@@ -1,0 +1,22 @@
+﻿@model House
+
+@{
+    ViewData["Title"] = $"Maison {Model.Name}";
+}
+
+<h1>Maison @Model.Name</h1>
+
+<div class="d-flex detail-house"> 
+<dl >
+    <dt>Devise</dt>
+    <dd>@Model.Motto</dd>
+    <dt>Force Militaire</dt>
+    <dd>@Model.MilitaryStrength</dd>
+    <dt>Siege</dt>
+    <dd>
+        @(Model.Headquarters is null ? "N/A" : String.Join(", ", Model.Headquarters))
+    </dd>
+</dl>
+
+<img class="ml-2" src="~/images/@Model.Image" alt="Blason de la maison @Model.Name" />
+</div>

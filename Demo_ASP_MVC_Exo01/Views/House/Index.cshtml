@@ -1,0 +1,31 @@
+﻿@model IEnumerable<House>
+
+@{
+    ViewData["Title"] = "Maison de trône de fer";
+}
+
+<h1>Les maisons</h1>
+
+<table class="table table-hover">
+    <thead class="table-danger">
+        <tr>
+            <th>Name</th>
+            <th>Devise</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(House house in Model)
+        {
+        <tr>
+            <td>@house.Name</td>
+            <td>@house.Motto</td>
+            <td>
+                <a asp-controller="House" asp-action="detail" asp-route-id="@house.Id">
+                    Detail
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
