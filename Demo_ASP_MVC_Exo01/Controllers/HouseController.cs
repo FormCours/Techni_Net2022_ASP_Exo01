@@ -20,7 +20,10 @@ namespace Demo_ASP_MVC_Exo01.Controllers
             // Detail d'une maison
             House? house = FakeDB.Houses.SingleOrDefault(h => h.Id == id);
 
-            // TODO Not found !!!
+            if(house is null)
+            {
+                return NotFound();
+            }
 
             return View(house);
         }
